@@ -1,0 +1,44 @@
+{
+	"name": "Wine Labs basic example",
+	"nodes": [
+		{
+			"parameters": {},
+			"id": "manual",
+			"name": "When clicking Execute workflow",
+			"type": "n8n-nodes-base.manualTrigger",
+			"typeVersion": 1,
+			"position": [300, 300]
+		},
+		{
+			"parameters": {
+				"operation": "wineInfo",
+				"identifierType": "query",
+				"identifier": "Chateau Margaux 2015",
+				"includeAvailableVintages": true
+			},
+			"id": "service-node",
+			"name": "Wine Labs",
+			"type": "n8n-nodes-wine-labs.wineLabs",
+			"typeVersion": 1,
+			"position": [560, 300]
+		}
+	],
+	"connections": {
+		"When clicking Execute workflow": {
+			"main": [
+				[
+					{
+						"node": "Wine Labs",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		}
+	},
+	"settings": {
+		"executionOrder": "v1"
+	},
+	"active": false,
+	"pinData": {}
+}
